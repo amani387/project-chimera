@@ -1,0 +1,24 @@
+# CodeRabbit AI Review Configuration
+reviews:
+  enabled: true
+  request_changes_workflow: true
+  auto_review:
+    enabled: true
+    base_branches:
+      - main
+      - develop
+  rules:
+    - name: "Check spec alignment"
+      pattern: ".*\\.java"
+      message: |
+        Please ensure this code aligns with the specifications in `specs/`.
+        Reference the relevant spec section in your PR description.
+    - name: "Java thread safety"
+      pattern: ".*\\.java"
+      message: |
+        Check for proper use of virtual threads and immutability.
+        Avoid shared mutable state.
+    - name: "Security vulnerabilities"
+      pattern: ".*"
+      message: |
+        Scan for potential security issues (e.g., hardcoded secrets, SQL injection).
