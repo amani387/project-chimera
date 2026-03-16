@@ -22,6 +22,7 @@ import org.springframework.data.redis.core.ListOperations;
 import org.springframework.data.redis.core.RedisTemplate;
 
 @SpringBootTest(properties = {
+    "spring.autoconfigure.exclude=org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration",
     "chimera.redis.enabled=false",
     "chimera.planner.enabled=false",
     "chimera.worker.enabled=true"

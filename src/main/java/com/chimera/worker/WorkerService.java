@@ -57,9 +57,9 @@ public class WorkerService {
             executor.submit(() -> processTask(task));
           }
         } catch (IllegalStateException e) {
-          // Connection factory may have been stopped during shutdown.
-          if (e.getMessage() != null && e.getMessage().contains("has been STOPPED")) {
-            log.debug("Redis connection factory stopped; exiting worker loop");
+          // Connection factory may have been stopping/stopped during shutdown.
+          if (e.getMessage() != null && e.getMessage().toUpperCase().contains("STOPP")) {
+            log.debug("Redis connection factory stopping/stopped; exiting worker loop");
             break;
           }
           log.error("Error in worker loop", e);
