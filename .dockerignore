@@ -1,0 +1,15 @@
+# Ignore build output
+target
+
+# Git metadata
+.git
+
+# IDE/editor settings
+.idea
+.vscode
+
+# Local environment files
+*.iml
+
+# Docker artifacts
+.dockerignore

@@ -13,9 +13,18 @@ test:
 lint:
 	./mvnw checkstyle:check
 
+# Validate code against spec-defined models
+spec-check:
+	@./scripts/spec-check.sh
+
 # Clean the project
 clean:
 	./mvnw clean
+
+# Build and test inside Docker (uses builder stage)
+docker-test:
+	docker build --target builder -t chimera:test .
+	docker run --rm chimera:test ./mvnw test
 
 # Optional: Run a specific test class
 test-class:
