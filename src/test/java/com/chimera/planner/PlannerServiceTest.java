@@ -5,8 +5,12 @@ import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
+import com.chimera.model.JudgeVerdict;
 import com.chimera.model.Task;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -24,17 +28,27 @@ class PlannerServiceTest {
   private RedisTemplate<String, Task> redisTemplate;
 
   @Mock
+  private RedisTemplate<String, JudgeVerdict> verdictRedisTemplate;
+
+  @Mock
   private ListOperations<String, Task> listOperations;
 
   @Captor
   private ArgumentCaptor<Task> taskCaptor;
 
   private PlannerService plannerService;
+  private ExecutorService executor;
 
   @BeforeEach
   void setUp() {
+    executor = Executors.newVirtualThreadPerTaskExecutor();
     when(redisTemplate.opsForList()).thenReturn(listOperations);
-    plannerService = new PlannerService(redisTemplate);
+    plannerService = new PlannerService(redisTemplate, verdictRedisTemplate, executor);
+  }
+
+  @AfterEach
+  void tearDown() {
+    plannerService.shutdown();
   }
 
   @Test

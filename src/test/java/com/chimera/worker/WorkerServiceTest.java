@@ -79,7 +79,8 @@ class WorkerServiceTest {
         null,
         null,
         Instant.now(),
-        "pending"
+        "pending",
+        Map.of()
     );
 
     worker.processTask(task);
@@ -89,5 +90,58 @@ class WorkerServiceTest {
     assertThat(result.taskId()).isEqualTo(task.taskId());
     assertThat(result.confidenceScore()).isEqualTo(0.0);
     assertThat(result.metadata()).containsKey("error");
+  }
+
+  @Test
+  void processTask_storeMemory_invokesMemoryClientAndPublishesResult() {
+    when(resultRedisTemplate.opsForList()).thenReturn(resultListOperations);
+
+    var memoryClient = org.mockito.Mockito.mock(com.chimera.mcp.WeaviateMcpClient.class);
+    when(memoryClient.storeMemory("test-agent-001", "hello", Map.of("foo", "bar")))
+        .thenReturn(java.util.concurrent.CompletableFuture.completedFuture(null));
+
+    var worker = new WorkerService(taskRedisTemplate, resultRedisTemplate, executor);
+    worker.setMemoryClient(memoryClient);
+    var task = Task.storeMemory("hello", Map.of("foo", "bar"));
+
+    worker.processTask(task);
+
+    verify(memoryClient).storeMemory("test-agent-001", "hello", Map.of("foo", "bar"));
+    verify(resultListOperations).leftPush(eq("review:queue:test-agent-001"), resultCaptor.capture());
+    var result = resultCaptor.getValue();
+    assertThat(result.output().contentType()).isEqualTo("memory_store");
+    assertThat(result.metadata()).containsEntry("stored", true);
+  }
+
+  @Test
+  void processTask_searchMemory_returnsRetrievedMemories() {
+    when(resultRedisTemplate.opsForList()).thenReturn(resultListOperations);
+
+    var memoryEntry = new com.chimera.model.MemoryEntry(
+        "id-1",
+        "test-agent-001",
+        "semantic",
+        "hello world",
+        List.of(),
+        Map.of(),
+        Instant.now(),
+        0,
+        Instant.now()
+    );
+    var memoryClient = org.mockito.Mockito.mock(com.chimera.mcp.WeaviateMcpClient.class);
+    when(memoryClient.searchMemories("test-agent-001", "hello", 5))
+        .thenReturn(java.util.concurrent.CompletableFuture.completedFuture(List.of(memoryEntry)));
+
+    var worker = new WorkerService(taskRedisTemplate, resultRedisTemplate, executor);
+    worker.setMemoryClient(memoryClient);
+    var task = Task.searchMemory("hello", 5);
+
+    worker.processTask(task);
+
+    verify(memoryClient).searchMemories("test-agent-001", "hello", 5);
+    verify(resultListOperations).leftPush(eq("review:queue:test-agent-001"), resultCaptor.capture());
+    var result = resultCaptor.getValue();
+    assertThat(result.output().contentType()).isEqualTo("memory_search");
+    assertThat(result.metadata()).containsKey("memories");
   }
 }

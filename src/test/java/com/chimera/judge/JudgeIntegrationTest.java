@@ -27,14 +27,33 @@ class JudgeIntegrationTest {
   @Autowired
   private JudgeService judgeService;
 
+  @Autowired
+  private List<com.chimera.model.JudgeVerdict> queuedVerdicts;
+
   @Test
   void judgeShouldApproveHighConfidenceResult() throws Exception {
     // Wait for the judge loop to process the mocked result
     boolean approved = waitForApprovedResults(1, 2, TimeUnit.SECONDS);
+    boolean queued = waitForQueuedVerdicts(1, 2, TimeUnit.SECONDS);
 
     assertThat(approved).isTrue();
+    assertThat(queued).isTrue();
     assertThat(judgeService.getApprovedResults()).hasSize(1);
     assertThat(judgeService.getApprovedResults().get(0).taskId()).isEqualTo("task-1");
+
+    assertThat(queuedVerdicts).hasSize(1);
+    assertThat(queuedVerdicts.get(0).verdict()).isEqualTo(com.chimera.model.JudgeVerdictType.APPROVE);
+  }
+
+  private boolean waitForQueuedVerdicts(int expectedSize, long timeout, TimeUnit unit) throws InterruptedException {
+    long deadline = System.nanoTime() + unit.toNanos(timeout);
+    while (System.nanoTime() < deadline) {
+      if (queuedVerdicts.size() >= expectedSize) {
+        return true;
+      }
+      Thread.sleep(50);
+    }
+    return false;
   }
 
   private boolean waitForApprovedResults(int expectedSize, long timeout, TimeUnit unit) throws InterruptedException {
@@ -52,6 +71,26 @@ class JudgeIntegrationTest {
   static class JudgeTestConfig {
 
     @Bean
+    public List<com.chimera.model.JudgeVerdict> queuedVerdicts() {
+      return new java.util.concurrent.CopyOnWriteArrayList<>();
+    }
+
+    @Bean
+    public RedisTemplate<String, com.chimera.model.JudgeVerdict> verdictRedisTemplate(
+        List<com.chimera.model.JudgeVerdict> queuedVerdicts) {
+      var listOps = Mockito.mock(ListOperations.class);
+      Mockito.when(listOps.leftPush(Mockito.eq("planner:queue:test-agent-001"), Mockito.any()))
+          .thenAnswer(invocation -> {
+            queuedVerdicts.add(invocation.getArgument(1));
+            return (long) queuedVerdicts.size();
+          });
+
+      var template = Mockito.mock(RedisTemplate.class);
+      Mockito.when(template.opsForList()).thenReturn(listOps);
+      return template;
+    }
+
+    @Bean
     public RedisTemplate<String, WorkerResult> resultRedisTemplate() {
       var listOps = Mockito.mock(ListOperations.class);
 
@@ -59,7 +98,7 @@ class JudgeIntegrationTest {
           "task-1",
           "worker-1",
           new WorkerResult.WorkerOutput("image", "url", List.of()),
-          0.85,
+          0.95,
           "ok",
           List.of(),
           100,

@@ -18,7 +18,8 @@ public record Task(
     BudgetAllocation budgetAllocation,
     String assignedWorkerId,
     Instant createdAt,
-    String status
+    String status,
+    Map<String, Object> parameters
 ) {
 
   public record Context(
@@ -36,8 +37,7 @@ public record Task(
   ) {
   }
 
-
-public static Task pending(String goalDescription) {
+  public static Task pending(String goalDescription) {
     return new Task(
         java.util.UUID.randomUUID().toString(),
         "generate_content",
@@ -46,7 +46,43 @@ public static Task pending(String goalDescription) {
         null,
         null,
         Instant.now(),
-        "pending"
+        "pending",
+        Map.of()
+    );
+  }
+
+  public static Task storeMemory(String content, Map<String, Object> metadata) {
+    return new Task(
+        java.util.UUID.randomUUID().toString(),
+        "store_memory",
+        "low",
+        new Context("Store memory", List.of(), List.of(), List.of()),
+        null,
+        null,
+        Instant.now(),
+        "pending",
+        Map.of(
+            "content", content,
+            "metadata", metadata == null ? Map.of() : Map.copyOf(metadata)
+        )
+    );
+  }
+
+  public static Task searchMemory(String query, int limit) {
+    return new Task(
+        java.util.UUID.randomUUID().toString(),
+        "search_memory",
+        "low",
+        new Context("Search memory", List.of(), List.of(), List.of()),
+        null,
+        null,
+        Instant.now(),
+        "pending",
+        Map.of(
+            "query", query,
+            "limit", limit
+        )
     );
   }
 }
+

@@ -8,7 +8,7 @@ package com.chimera.model;
 public record JudgeVerdict(
     String taskId,
     String judgeId,
-    String verdict,
+    JudgeVerdictType verdict,
     double confidenceScore,
     String reasoning,
     String feedbackForPlanner,

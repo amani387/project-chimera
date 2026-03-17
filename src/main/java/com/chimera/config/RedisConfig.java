@@ -59,4 +59,23 @@ public class RedisConfig {
     template.afterPropertiesSet();
     return template;
   }
+
+  @Bean(name = "verdictRedisTemplate")
+  public RedisTemplate<String, com.chimera.model.JudgeVerdict> verdictRedisTemplate(RedisConnectionFactory factory) {
+    RedisTemplate<String, com.chimera.model.JudgeVerdict> template = new RedisTemplate<>();
+    template.setConnectionFactory(factory);
+
+    var objectMapper = new ObjectMapper();
+    objectMapper.registerModule(new JavaTimeModule());
+    objectMapper.findAndRegisterModules();
+
+    var serializer = new GenericJackson2JsonRedisSerializer(objectMapper);
+
+    template.setKeySerializer(new StringRedisSerializer());
+    template.setHashKeySerializer(new StringRedisSerializer());
+    template.setValueSerializer(serializer);
+    template.setHashValueSerializer(serializer);
+    template.afterPropertiesSet();
+    return template;
+  }
 }
