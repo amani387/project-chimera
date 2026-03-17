@@ -5,3 +5,4 @@ chimera:
     mock: false   # set to true for local development without a Weaviate instance
     connect-timeout: 5000
     read-timeout: 10000
+

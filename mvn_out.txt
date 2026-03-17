@@ -1,0 +1,553 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------------< com.chimera:chimera >-------------------------
+[INFO] Building chimera 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.5.0:clean (default-clean) @ chimera ---
+[INFO] Deleting C:\Users\kingsta\Desktop\tenas\chimera_challenge\chimera\target
+[INFO] 
+[INFO] --- checkstyle:3.3.0:check (default) @ chimera ---
+[INFO] Starting audit...
+[WARN] C:\Users\kingsta\Desktop\tenas\chimera_challenge\chimera\src\main\java\com\chimera\ChimeraApplication.java:6:1: Missing a Javadoc comment. [MissingJavadocType]
+[WARN] C:\Users\kingsta\Desktop\tenas\chimera_challenge\chimera\src\main\java\com\chimera\ChimeraApplication.java:9:1: Line contains a tab character. [FileTabCharacter]
+[WARN] C:\Users\kingsta\Desktop\tenas\chimera_challenge\chimera\src\main\java\com\chimera\ChimeraApplication.java:9:9: 'method def modifier' has incorrect indentation level 8, expected level should be 2. [Indentation]
+[WARN] C:\Users\kingsta\Desktop\tenas\chimera_challenge\chimera\src\main\java\com\chimera\ChimeraApplication.java:10:1: Line contains a tab character. [FileTabCharacter]
+[WARN] C:\Users\kingsta\Desktop\tenas\chimera_challenge\chimera\src\main\java\com\chimera\ChimeraApplication.java:10:17: 'method def' child has incorrect indentation level 16, expected level should be 4. [Indentation]
+[WARN] C:\Users\kingsta\Desktop\tenas\chimera_challenge\chimera\src\main\java\com\chimera\ChimeraApplication.java:11:1: Line contains a tab character. [FileTabCharacter]
+[WARN] C:\Users\kingsta\Desktop\tenas\chimera_challenge\chimera\src\main\java\com\chimera\ChimeraApplication.java:11:9: 'method def rcurly' has incorrect indentation level 8, expected level should be 2. [Indentation]
+[WARN] C:\Users\kingsta\Desktop\tenas\chimera_challenge\chimera\src\main\java\com\chimera\config\McpConfig.java:24: Line is longer than 100 characters (found 101). [LineLength]
+[WARN] C:\Users\kingsta\Desktop\tenas\chimera_challenge\chimera\src\main\java\com\chimera\config\McpConfig.java:30:3: Missing a Javadoc comment. [MissingJavadocMethod]
+[WARN] C:\Users\kingsta\Desktop\tenas\chimera_challenge\chimera\src\main\java\com\chimera\config\RedisConfig.java:16:1: Missing a Javadoc comment. [MissingJavadocType]
+[WARN] C:\Users\kingsta\Desktop\tenas\chimera_challenge\chimera\src\main\java\com\chimera\config\RedisConfig.java:25:3: Missing a Javadoc comment. [MissingJavadocMethod]
+[WARN] C:\Users\kingsta\Desktop\tenas\chimera_challenge\chimera\src\main\java\com\chimera\config\RedisConfig.java:44:3: Missing a Javadoc comment. [MissingJavadocMethod]
+[WARN] C:\Users\kingsta\Desktop\tenas\chimera_challenge\chimera\src\main\java\com\chimera\config\RedisConfig.java:63:3: Missing a Javadoc comment. [MissingJavadocMethod]
+[WARN] C:\Users\kingsta\Desktop\tenas\chimera_challenge\chimera\src\main\java\com\chimera\config\RedisConfig.java:64: Line is longer than 100 characters (found 117). [LineLength]
+[WARN] C:\Users\kingsta\Desktop\tenas\chimera_challenge\chimera\src\main\java\com\chimera\controller\TestController.java:6:1: Missing a Javadoc comment. [MissingJavadocType]
+[WARN] C:\Users\kingsta\Desktop\tenas\chimera_challenge\chimera\src\main\java\com\chimera\controller\TestController.java:9:5: 'method def modifier' has incorrect indentation level 4, expected level should be 2. [Indentation]
+[WARN] C:\Users\kingsta\Desktop\tenas\chimera_challenge\chimera\src\main\java\com\chimera\controller\TestController.java:11:9: 'method def' child has incorrect indentation level 8, expected level should be 4. [Indentation]
+[WARN] C:\Users\kingsta\Desktop\tenas\chimera_challenge\chimera\src\main\java\com\chimera\controller\TestController.java:12:5: 'method def rcurly' has incorrect indentation level 4, expected level should be 2. [Indentation]
+[WARN] C:\Users\kingsta\Desktop\tenas\chimera_challenge\chimera\src\main\java\com\chimera\judge\JudgeService.java:10:1: Wrong lexicographical order for 'java.util.concurrent.CopyOnWriteArrayList' import. Should be before 'java.util.concurrent.ExecutorService'. [CustomImportOrder]
+[WARN] C:\Users\kingsta\Desktop\tenas\chimera_challenge\chimera\src\main\java\com\chimera\judge\JudgeService.java:12:1: Wrong lexicographical order for 'jakarta.annotation.PostConstruct' import. Should be before 'java.util.concurrent.TimeUnit'. [CustomImportOrder]
+[WARN] C:\Users\kingsta\Desktop\tenas\chimera_challenge\chimera\src\main\java\com\chimera\judge\JudgeService.java:13:1: Wrong lexicographical order for 'jakarta.annotation.PreDestroy' import. Should be before 'java.util.concurrent.TimeUnit'. [CustomImportOrder]
+[WARN] C:\Users\kingsta\Desktop\tenas\chimera_challenge\chimera\src\main\java\com\chimera\judge\JudgeService.java:21: Line is longer than 100 characters (found 101). [LineLength]
+[WARN] C:\Users\kingsta\Desktop\tenas\chimera_challenge\chimera\src\main\java\com\chimera\judge\JudgeService.java:41:3: Missing a Javadoc comment. [MissingJavadocMethod]
+[WARN] C:\Users\kingsta\Desktop\tenas\chimera_challenge\chimera\src\main\java\com\chimera\judge\JudgeService.java:50:3: Missing a Javadoc comment. [MissingJavadocMethod]
+[WARN] C:\Users\kingsta\Desktop\tenas\chimera_challenge\chimera\src\main\java\com\chimera\judge\JudgeService.java:56: Line is longer than 100 characters (found 109). [LineLength]
+[WARN] C:\Users\kingsta\Desktop\tenas\chimera_challenge\chimera\src\main\java\com\chimera\judge\JudgeService.java:75:3: Missing a Javadoc comment. [MissingJavadocMethod]
+[WARN] C:\Users\kingsta\Desktop\tenas\chimera_challenge\chimera\src\main\java\com\chimera\judge\JudgeService.java:89: Line is longer than 100 characters (found 109). [LineLength]
+[WARN] C:\Users\kingsta\Desktop\tenas\chimera_challenge\chimera\src\main\java\com\chimera\judge\JudgeService.java:118: Line is longer than 100 characters (found 113). [LineLength]
+[WARN] C:\Users\kingsta\Desktop\tenas\chimera_challenge\chimera\src\main\java\com\chimera\judge\JudgeService.java:132: Line is longer than 100 characters (found 114). [LineLength]
+[WARN] C:\Users\kingsta\Desktop\tenas\chimera_challenge\chimera\src\main\java\com\chimera\judge\JudgeService.java:146: Line is longer than 100 characters (found 113). [LineLength]
+[WARN] C:\Users\kingsta\Desktop\tenas\chimera_challenge\chimera\src\main\java\com\chimera\mcp\HttpWeaviateMcpClient.java:39: Line is longer than 100 characters (found 108). [LineLength]
+[WARN] C:\Users\kingsta\Desktop\tenas\chimera_challenge\chimera\src\main\java\com\chimera\mcp\HttpWeaviateMcpClient.java:63: Line is longer than 100 characters (found 103). [LineLength]
+[WARN] C:\Users\kingsta\Desktop\tenas\chimera_challenge\chimera\src\main\java\com\chimera\mcp\HttpWeaviateMcpClient.java:93: Line is longer than 100 characters (found 113). [LineLength]
+[WARN] C:\Users\kingsta\Desktop\tenas\chimera_challenge\chimera\src\main\java\com\chimera\mcp\HttpWeaviateMcpClient.java:315: Line is longer than 100 characters (found 117). [LineLength]
+[WARN] C:\Users\kingsta\Desktop\tenas\chimera_challenge\chimera\src\main\java\com\chimera\mcp\MockWeaviateMcpClient.java:27: Line is longer than 100 characters (found 108). [LineLength]
+[WARN] C:\Users\kingsta\Desktop\tenas\chimera_challenge\chimera\src\main\java\com\chimera\mcp\MockWeaviateMcpClient.java:51: Line is longer than 100 characters (found 103). [LineLength]
+[WARN] C:\Users\kingsta\Desktop\tenas\chimera_challenge\chimera\src\main\java\com\chimera\mcp\MockWeaviateMcpClient.java:54: Line is longer than 100 characters (found 107). [LineLength]
+[WARN] C:\Users\kingsta\Desktop\tenas\chimera_challenge\chimera\src\main\java\com\chimera\model\JudgeVerdict.java:5: Empty line should be followed by <p> tag on the next line. [JavadocParagraph]
+[WARN] C:\Users\kingsta\Desktop\tenas\chimera_challenge\chimera\src\main\java\com\chimera\model\Task.java:25:3: Missing a Javadoc comment. [MissingJavadocType]
+[WARN] C:\Users\kingsta\Desktop\tenas\chimera_challenge\chimera\src\main\java\com\chimera\model\Task.java:34:3: Missing a Javadoc comment. [MissingJavadocType]
+[WARN] C:\Users\kingsta\Desktop\tenas\chimera_challenge\chimera\src\main\java\com\chimera\model\Task.java:40:3: Missing a Javadoc comment. [MissingJavadocMethod]
+[WARN] C:\Users\kingsta\Desktop\tenas\chimera_challenge\chimera\src\main\java\com\chimera\model\Task.java:54:3: Missing a Javadoc comment. [MissingJavadocMethod]
+[WARN] C:\Users\kingsta\Desktop\tenas\chimera_challenge\chimera\src\main\java\com\chimera\model\Task.java:71:3: Missing a Javadoc comment. [MissingJavadocMethod]
+[WARN] C:\Users\kingsta\Desktop\tenas\chimera_challenge\chimera\src\main\java\com\chimera\model\WorkerResult.java:22:3: Missing a Javadoc comment. [MissingJavadocType]
+[WARN] C:\Users\kingsta\Desktop\tenas\chimera_challenge\chimera\src\main\java\com\chimera\planner\ContextAssembler.java:5:1: Wrong lexicographical order for 'com.chimera.mcp.WeaviateMcpClient' import. Should be before 'com.chimera.model.MemoryEntry'. [CustomImportOrder]
+[WARN] C:\Users\kingsta\Desktop\tenas\chimera_challenge\chimera\src\main\java\com\chimera\planner\ContextAssembler.java:16:3: Missing a Javadoc comment. [MissingJavadocMethod]
+[WARN] C:\Users\kingsta\Desktop\tenas\chimera_challenge\chimera\src\main\java\com\chimera\planner\PlannerService.java:5:1: Wrong lexicographical order for 'com.chimera.model.MemoryEntry' import. Should be before 'com.chimera.model.Task'. [CustomImportOrder]
+[WARN] C:\Users\kingsta\Desktop\tenas\chimera_challenge\chimera\src\main\java\com\chimera\planner\PlannerService.java:6:1: Wrong lexicographical order for 'com.chimera.mcp.WeaviateMcpClient' import. Should be before 'com.chimera.model.Task'. [CustomImportOrder]
+[WARN] C:\Users\kingsta\Desktop\tenas\chimera_challenge\chimera\src\main\java\com\chimera\planner\PlannerService.java:26:1: Missing a Javadoc comment. [MissingJavadocType]
+[WARN] C:\Users\kingsta\Desktop\tenas\chimera_challenge\chimera\src\main\java\com\chimera\planner\PlannerService.java:28: Line is longer than 100 characters (found 101). [LineLength]
+[WARN] C:\Users\kingsta\Desktop\tenas\chimera_challenge\chimera\src\main\java\com\chimera\planner\PlannerService.java:52:3: Missing a Javadoc comment. [MissingJavadocMethod]
+[WARN] C:\Users\kingsta\Desktop\tenas\chimera_challenge\chimera\src\main\java\com\chimera\planner\PlannerService.java:78: Line is longer than 100 characters (found 113). [LineLength]
+[WARN] C:\Users\kingsta\Desktop\tenas\chimera_challenge\chimera\src\main\java\com\chimera\planner\PlannerService.java:91: Line is longer than 100 characters (found 111). [LineLength]
+[WARN] C:\Users\kingsta\Desktop\tenas\chimera_challenge\chimera\src\main\java\com\chimera\planner\PlannerService.java:118: Line is longer than 100 characters (found 101). [LineLength]
+[WARN] C:\Users\kingsta\Desktop\tenas\chimera_challenge\chimera\src\main\java\com\chimera\planner\PlannerService.java:137: Line is longer than 100 characters (found 101). [LineLength]
+[WARN] C:\Users\kingsta\Desktop\tenas\chimera_challenge\chimera\src\main\java\com\chimera\planner\PlannerService.java:154: Line is longer than 100 characters (found 106). [LineLength]
+[WARN] C:\Users\kingsta\Desktop\tenas\chimera_challenge\chimera\src\main\java\com\chimera\planner\PlannerService.java:157: Line is longer than 100 characters (found 147). [LineLength]
+[WARN] C:\Users\kingsta\Desktop\tenas\chimera_challenge\chimera\src\main\java\com\chimera\service\PersonaService.java:14:1: Wrong lexicographical order for 'jakarta.annotation.PostConstruct' import. Should be before 'java.util.stream.Collectors'. [CustomImportOrder]
+[WARN] C:\Users\kingsta\Desktop\tenas\chimera_challenge\chimera\src\main\java\com\chimera\service\PersonaService.java:130: Line is longer than 100 characters (found 101). [LineLength]
+[WARN] C:\Users\kingsta\Desktop\tenas\chimera_challenge\chimera\src\main\java\com\chimera\worker\McpWorkerService.java:11:1: Wrong lexicographical order for 'org.springframework.data.redis.core.RedisTemplate' import. Should be before 'org.springframework.stereotype.Service'. [CustomImportOrder]
+[WARN] C:\Users\kingsta\Desktop\tenas\chimera_challenge\chimera\src\main\java\com\chimera\worker\WorkerService.java:15:1: Wrong lexicographical order for 'jakarta.annotation.PostConstruct' import. Should be before 'java.util.concurrent.TimeUnit'. [CustomImportOrder]
+[WARN] C:\Users\kingsta\Desktop\tenas\chimera_challenge\chimera\src\main\java\com\chimera\worker\WorkerService.java:16:1: Wrong lexicographical order for 'jakarta.annotation.PreDestroy' import. Should be before 'java.util.concurrent.TimeUnit'. [CustomImportOrder]
+[WARN] C:\Users\kingsta\Desktop\tenas\chimera_challenge\chimera\src\main\java\com\chimera\worker\WorkerService.java:21:1: Wrong lexicographical order for 'org.springframework.data.redis.core.RedisTemplate' import. Should be before 'org.springframework.stereotype.Service'. [CustomImportOrder]
+[WARN] C:\Users\kingsta\Desktop\tenas\chimera_challenge\chimera\src\main\java\com\chimera\worker\WorkerService.java:29: Line is longer than 100 characters (found 105). [LineLength]
+[WARN] C:\Users\kingsta\Desktop\tenas\chimera_challenge\chimera\src\main\java\com\chimera\worker\WorkerService.java:47:3: Missing a Javadoc comment. [MissingJavadocMethod]
+[WARN] C:\Users\kingsta\Desktop\tenas\chimera_challenge\chimera\src\main\java\com\chimera\worker\WorkerService.java:61:3: Missing a Javadoc comment. [MissingJavadocMethod]
+[WARN] C:\Users\kingsta\Desktop\tenas\chimera_challenge\chimera\src\main\java\com\chimera\worker\WorkerService.java:86:3: Missing a Javadoc comment. [MissingJavadocMethod]
+[WARN] C:\Users\kingsta\Desktop\tenas\chimera_challenge\chimera\src\main\java\com\chimera\worker\WorkerService.java:127: Line is longer than 100 characters (found 101). [LineLength]
+[WARN] C:\Users\kingsta\Desktop\tenas\chimera_challenge\chimera\src\main\java\com\chimera\worker\WorkerService.java:202: Line is longer than 100 characters (found 102). [LineLength]
+Audit done.
+[INFO] You have 0 Checkstyle violations.
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ chimera ---
+[INFO] Copying 2 resources from src\main\resources to target\classes
+[INFO] Copying 2 resources from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.14.1:compile (default-compile) @ chimera ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 26 source files with javac [debug parameters release 21] to target\classes
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by lombok.permit.Permit
+WARNING: Please consider reporting this to the maintainers of class lombok.permit.Permit
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+[WARNING] /C:/Users/kingsta/Desktop/tenas/chimera_challenge/chimera/src/main/java/com/chimera/config/RedisConfig.java:[34,26] org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer in org.springframework.data.redis.serializer has been deprecated and marked for removal
+[WARNING] /C:/Users/kingsta/Desktop/tenas/chimera_challenge/chimera/src/main/java/com/chimera/config/RedisConfig.java:[53,26] org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer in org.springframework.data.redis.serializer has been deprecated and marked for removal
+[WARNING] /C:/Users/kingsta/Desktop/tenas/chimera_challenge/chimera/src/main/java/com/chimera/config/RedisConfig.java:[72,26] org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer in org.springframework.data.redis.serializer has been deprecated and marked for removal
+[INFO] /C:/Users/kingsta/Desktop/tenas/chimera_challenge/chimera/src/main/java/com/chimera/mcp/HttpWeaviateMcpClient.java: Some input files use unchecked or unsafe operations.
+[INFO] /C:/Users/kingsta/Desktop/tenas/chimera_challenge/chimera/src/main/java/com/chimera/mcp/HttpWeaviateMcpClient.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ chimera ---
+[INFO] skip non existing resourceDirectory C:\Users\kingsta\Desktop\tenas\chimera_challenge\chimera\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.14.1:testCompile (default-testCompile) @ chimera ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 13 source files with javac [debug parameters release 21] to target\test-classes
+[INFO] /C:/Users/kingsta/Desktop/tenas/chimera_challenge/chimera/src/test/java/com/chimera/judge/JudgeIntegrationTest.java: Some input files use unchecked or unsafe operations.
+[INFO] /C:/Users/kingsta/Desktop/tenas/chimera_challenge/chimera/src/test/java/com/chimera/judge/JudgeIntegrationTest.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- surefire:3.5.4:test (default-test) @ chimera ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.chimera.ChimeraApplicationTests
+17:19:07.541 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.chimera.ChimeraApplicationTests]: ChimeraApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+17:19:07.839 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.chimera.ChimeraApplication for test class com.chimera.ChimeraApplicationTests
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.0.3)
+
+2026-03-17T17:19:08.939+03:00  INFO 4232 --- [chimera] [           main] com.chimera.ChimeraApplicationTests      : Starting ChimeraApplicationTests using Java 25.0.2 with PID 4232 (started by kingsta in C:\Users\kingsta\Desktop\tenas\chimera_challenge\chimera)
+2026-03-17T17:19:08.943+03:00  INFO 4232 --- [chimera] [           main] com.chimera.ChimeraApplicationTests      : No active profile set, falling back to 1 default profile: "default"
+2026-03-17T17:19:10.615+03:00  INFO 4232 --- [chimera] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-03-17T17:19:10.621+03:00  INFO 4232 --- [chimera] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-17T17:19:10.679+03:00  INFO 4232 --- [chimera] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 38 ms. Found 0 JPA repository interfaces.
+2026-03-17T17:19:10.767+03:00  INFO 4232 --- [chimera] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-03-17T17:19:10.768+03:00  INFO 4232 --- [chimera] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-03-17T17:19:10.797+03:00  INFO 4232 --- [chimera] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 11 ms. Found 0 Redis repository interfaces.
+2026-03-17T17:19:11.967+03:00  INFO 4232 --- [chimera] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-03-17T17:19:12.468+03:00  INFO 4232 --- [chimera] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:13e87bdf-f8fc-4ff3-970a-a5753b3bd558 user=SA
+2026-03-17T17:19:12.471+03:00  INFO 4232 --- [chimera] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-03-17T17:19:12.562+03:00  INFO 4232 --- [chimera] [           main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-03-17T17:19:12.671+03:00  INFO 4232 --- [chimera] [           main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.4.Final
+2026-03-17T17:19:14.057+03:00  INFO 4232 --- [chimera] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-17T17:19:14.254+03:00  INFO 4232 --- [chimera] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:h2:mem:13e87bdf-f8fc-4ff3-970a-a5753b3bd558]
+	Database driver: H2 JDBC Driver
+	Database dialect: H2Dialect
+	Database version: 2.4.240
+	Default catalog/schema: 13E87BDF-F8FC-4FF3-970A-A5753B3BD558/PUBLIC
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 100
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-03-17T17:19:15.337+03:00  INFO 4232 --- [chimera] [           main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-03-17T17:19:15.355+03:00  INFO 4232 --- [chimera] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-17T17:19:15.431+03:00  WARN 4232 --- [chimera] [           main] com.chimera.service.PersonaService       : Persona directory does not exist or is not a directory: agents
+2026-03-17T17:19:15.440+03:00  INFO 4232 --- [chimera] [           main] com.chimera.config.McpConfig             : Using HTTP Weaviate MCP client (url=http://localhost:8081)
+2026-03-17T17:19:15.666+03:00  WARN 4232 --- [chimera] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-03-17T17:19:17.934+03:00  INFO 4232 --- [chimera] [           main] com.chimera.ChimeraApplicationTests      : Started ChimeraApplicationTests in 9.651 seconds (process running for 13.25)
+Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in future releases of the JDK. Please add Mockito as an agent to your build as described in Mockito's documentation: https://javadoc.io/doc/org.mockito/mockito-core/latest/org.mockito/org/mockito/Mockito.html#0.3
+WARNING: A Java agent has been loaded dynamically (C:\Users\kingsta\.m2\repository\net\bytebuddy\byte-buddy-agent\1.17.8\byte-buddy-agent-1.17.8.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 12.14 s -- in com.chimera.ChimeraApplicationTests
+[INFO] Running com.chimera.judge.JudgeIntegrationTest
+2026-03-17T17:19:19.382+03:00  INFO 4232 --- [chimera] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.chimera.ChimeraApplication for test class com.chimera.judge.JudgeIntegrationTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.0.3)
+
+2026-03-17T17:19:19.511+03:00  INFO 4232 --- [chimera] [           main] com.chimera.judge.JudgeIntegrationTest   : Starting JudgeIntegrationTest using Java 25.0.2 with PID 4232 (started by kingsta in C:\Users\kingsta\Desktop\tenas\chimera_challenge\chimera)
+2026-03-17T17:19:19.512+03:00  INFO 4232 --- [chimera] [           main] com.chimera.judge.JudgeIntegrationTest   : No active profile set, falling back to 1 default profile: "default"
+2026-03-17T17:19:20.104+03:00  INFO 4232 --- [chimera] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-03-17T17:19:20.104+03:00  INFO 4232 --- [chimera] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-17T17:19:20.137+03:00  INFO 4232 --- [chimera] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 24 ms. Found 0 JPA repository interfaces.
+2026-03-17T17:19:20.157+03:00  INFO 4232 --- [chimera] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-03-17T17:19:20.158+03:00  INFO 4232 --- [chimera] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-03-17T17:19:20.177+03:00  INFO 4232 --- [chimera] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 14 ms. Found 0 Redis repository interfaces.
+2026-03-17T17:19:20.351+03:00  INFO 4232 --- [chimera] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2026-03-17T17:19:20.356+03:00  INFO 4232 --- [chimera] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection conn10: url=jdbc:h2:mem:446f6db6-3f26-4c43-a2c8-476e1bab8829 user=SA
+2026-03-17T17:19:20.357+03:00  INFO 4232 --- [chimera] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2026-03-17T17:19:20.362+03:00  INFO 4232 --- [chimera] [           main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-03-17T17:19:20.441+03:00  INFO 4232 --- [chimera] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-17T17:19:20.445+03:00  INFO 4232 --- [chimera] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:h2:mem:446f6db6-3f26-4c43-a2c8-476e1bab8829]
+	Database driver: H2 JDBC Driver
+	Database dialect: H2Dialect
+	Database version: 2.4.240
+	Default catalog/schema: 446F6DB6-3F26-4C43-A2C8-476E1BAB8829/PUBLIC
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 100
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-03-17T17:19:20.480+03:00  INFO 4232 --- [chimera] [           main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-03-17T17:19:20.482+03:00  INFO 4232 --- [chimera] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-17T17:19:21.719+03:00  INFO 4232 --- [chimera] [     virtual-49] com.chimera.judge.JudgeService           : Judge loop started
+2026-03-17T17:19:21.730+03:00  WARN 4232 --- [chimera] [           main] com.chimera.service.PersonaService       : Persona directory does not exist or is not a directory: agents
+2026-03-17T17:19:21.736+03:00  INFO 4232 --- [chimera] [     virtual-49] com.chimera.judge.JudgeService           : Judge received result for task task-1 (confidence=0.95)
+2026-03-17T17:19:21.751+03:00  INFO 4232 --- [chimera] [           main] com.chimera.config.McpConfig             : Using HTTP Weaviate MCP client (url=http://localhost:8081)
+2026-03-17T17:19:21.745+03:00  INFO 4232 --- [chimera] [     virtual-49] com.chimera.judge.JudgeService           : Approved task task-1 (confidence=0.95); verdict=JudgeVerdict[taskId=task-1, judgeId=judge-001, verdict=APPROVE, confidenceScore=0.95, reasoning=Confidence meets threshold, feedbackForPlanner=null, stateVersionChecked=null]
+2026-03-17T17:19:21.953+03:00  WARN 4232 --- [chimera] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-03-17T17:19:23.032+03:00  INFO 4232 --- [chimera] [           main] com.chimera.judge.JudgeIntegrationTest   : Started JudgeIntegrationTest in 3.597 seconds (process running for 18.348)
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.188 s -- in com.chimera.judge.JudgeIntegrationTest
+[INFO] Running com.chimera.judge.JudgeServiceTest
+2026-03-17T17:19:23.457+03:00  INFO 4232 --- [chimera] [           main] com.chimera.judge.JudgeService           : Judge received result for task task-2 (confidence=0.65)
+2026-03-17T17:19:23.458+03:00  WARN 4232 --- [chimera] [           main] com.chimera.judge.JudgeService           : Rejected task task-2 (confidence=0.65); verdict=JudgeVerdict[taskId=task-2, judgeId=judge-001, verdict=REJECT, confidenceScore=0.65, reasoning=Confidence too low, feedbackForPlanner=Consider using a stronger prompt or more context, stateVersionChecked=null]
+2026-03-17T17:19:23.521+03:00  INFO 4232 --- [chimera] [           main] com.chimera.judge.JudgeService           : Judge received result for task task-3 (confidence=0.85)
+2026-03-17T17:19:23.527+03:00  WARN 4232 --- [chimera] [           main] com.chimera.judge.JudgeService           : Escalated task task-3 (confidence=0.85); verdict=JudgeVerdict[taskId=task-3, judgeId=judge-001, verdict=ESCALATE, confidenceScore=0.85, reasoning=Confidence in gray zone; escalated for human review, feedbackForPlanner=Escalation requested; schedule human review, stateVersionChecked=null]
+2026-03-17T17:19:23.568+03:00  INFO 4232 --- [chimera] [           main] com.chimera.judge.JudgeService           : Judge received result for task task-1 (confidence=0.95)
+2026-03-17T17:19:23.569+03:00  INFO 4232 --- [chimera] [           main] com.chimera.judge.JudgeService           : Approved task task-1 (confidence=0.95); verdict=JudgeVerdict[taskId=task-1, judgeId=judge-001, verdict=APPROVE, confidenceScore=0.95, reasoning=Confidence meets threshold, feedbackForPlanner=null, stateVersionChecked=null]
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.147 s -- in com.chimera.judge.JudgeServiceTest
+[INFO] Running com.chimera.mcp.HttpWeaviateMcpClientTest
+2026-03-17T17:19:25.782+03:00  WARN 4232 --- [chimera] [           main] com.chimera.mcp.HttpWeaviateMcpClient    : Failed to query objects endpoint; falling back to GraphQL search
+
+java.lang.NullPointerException: Cannot invoke "org.springframework.http.ResponseEntity.getBody()" because the return value of "org.springframework.web.client.RestTemplate.getForEntity(String, java.lang.Class, Object[])" is null
+	at com.chimera.mcp.HttpWeaviateMcpClient.searchByAgentId(HttpWeaviateMcpClient.java:90) ~[classes/:na]
+	at com.chimera.mcp.HttpWeaviateMcpClient.searchMemories(HttpWeaviateMcpClient.java:69) ~[classes/:na]
+	at com.chimera.mcp.HttpWeaviateMcpClientTest.searchMemories_shouldParseGraphqlResponse(HttpWeaviateMcpClientTest.java:89) ~[test-classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565) ~[na:na]
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:701) ~[junit-platform-commons-6.0.3.jar:6.0.3]
+	at org.junit.platform.commons.support.ReflectionSupport.invokeMethod(ReflectionSupport.java:502) ~[junit-platform-commons-6.0.3.jar:6.0.3]
+	at org.junit.jupiter.engine.support.MethodReflectionUtils.invoke(MethodReflectionUtils.java:45) ~[junit-jupiter-engine-6.0.3.jar:6.0.3]
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:61) ~[junit-jupiter-engine-6.0.3.jar:6.0.3]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:124) ~[junit-jupiter-engine-6.0.3.jar:6.0.3]
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:163) ~[junit-jupiter-engine-6.0.3.jar:6.0.3]
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:148) ~[junit-jupiter-engine-6.0.3.jar:6.0.3]
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86) ~[junit-jupiter-engine-6.0.3.jar:6.0.3]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:123) ~[junit-jupiter-engine-6.0.3.jar:6.0.3]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:105) ~[junit-jupiter-engine-6.0.3.jar:6.0.3]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:99) ~[junit-jupiter-engine-6.0.3.jar:6.0.3]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:66) ~[junit-jupiter-engine-6.0.3.jar:6.0.3]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:47) ~[junit-jupiter-engine-6.0.3.jar:6.0.3]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:39) ~[junit-jupiter-engine-6.0.3.jar:6.0.3]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:104) ~[junit-jupiter-engine-6.0.3.jar:6.0.3]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:98) ~[junit-jupiter-engine-6.0.3.jar:6.0.3]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invokeVoid(InterceptingExecutableInvoker.java:71) ~[junit-jupiter-engine-6.0.3.jar:6.0.3]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$0(TestMethodTestDescriptor.java:219) ~[junit-jupiter-engine-6.0.3.jar:6.0.3]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:74) ~[junit-platform-engine-6.0.3.jar:6.0.3]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:215) ~[junit-jupiter-engine-6.0.3.jar:6.0.3]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:157) ~[junit-jupiter-engine-6.0.3.jar:6.0.3]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:70) ~[junit-jupiter-engine-6.0.3.jar:6.0.3]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$2(NodeTestTask.java:176) ~[junit-platform-engine-6.0.3.jar:6.0.3]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:74) ~[junit-platform-engine-6.0.3.jar:6.0.3]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$1(NodeTestTask.java:166) ~[junit-platform-engine-6.0.3.jar:6.0.3]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:138) ~[junit-platform-engine-6.0.3.jar:6.0.3]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$0(NodeTestTask.java:164) ~[junit-platform-engine-6.0.3.jar:6.0.3]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:74) ~[junit-platform-engine-6.0.3.jar:6.0.3]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:163) ~[junit-platform-engine-6.0.3.jar:6.0.3]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:116) ~[junit-platform-engine-6.0.3.jar:6.0.3]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604) ~[na:na]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:42) ~[junit-platform-engine-6.0.3.jar:6.0.3]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$2(NodeTestTask.java:180) ~[junit-platform-engine-6.0.3.jar:6.0.3]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:74) ~[junit-platform-engine-6.0.3.jar:6.0.3]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$1(NodeTestTask.java:166) ~[junit-platform-engine-6.0.3.jar:6.0.3]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:138) ~[junit-platform-engine-6.0.3.jar:6.0.3]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$0(NodeTestTask.java:164) ~[junit-platform-engine-6.0.3.jar:6.0.3]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:74) ~[junit-platform-engine-6.0.3.jar:6.0.3]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:163) ~[junit-platform-engine-6.0.3.jar:6.0.3]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:116) ~[junit-platform-engine-6.0.3.jar:6.0.3]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604) ~[na:na]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:42) ~[junit-platform-engine-6.0.3.jar:6.0.3]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$2(NodeTestTask.java:180) ~[junit-platform-engine-6.0.3.jar:6.0.3]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:74) ~[junit-platform-engine-6.0.3.jar:6.0.3]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$1(NodeTestTask.java:166) ~[junit-platform-engine-6.0.3.jar:6.0.3]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:138) ~[junit-platform-engine-6.0.3.jar:6.0.3]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$0(NodeTestTask.java:164) ~[junit-platform-engine-6.0.3.jar:6.0.3]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:74) ~[junit-platform-engine-6.0.3.jar:6.0.3]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:163) ~[junit-platform-engine-6.0.3.jar:6.0.3]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:116) ~[junit-platform-engine-6.0.3.jar:6.0.3]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:36) ~[junit-platform-engine-6.0.3.jar:6.0.3]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:52) ~[junit-platform-engine-6.0.3.jar:6.0.3]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:58) ~[junit-platform-engine-6.0.3.jar:6.0.3]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.executeEngine(EngineExecutionOrchestrator.java:246) ~[junit-platform-launcher-6.0.3.jar:6.0.3]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.failOrExecuteEngine(EngineExecutionOrchestrator.java:218) ~[junit-platform-launcher-6.0.3.jar:6.0.3]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:179) ~[junit-platform-launcher-6.0.3.jar:6.0.3]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:108) ~[junit-platform-launcher-6.0.3.jar:6.0.3]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:66) ~[junit-platform-launcher-6.0.3.jar:6.0.3]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:157) ~[junit-platform-launcher-6.0.3.jar:6.0.3]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:65) ~[junit-platform-launcher-6.0.3.jar:6.0.3]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:125) ~[junit-platform-launcher-6.0.3.jar:6.0.3]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114) ~[junit-platform-launcher-6.0.3.jar:6.0.3]
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:58) ~[junit-platform-launcher-6.0.3.jar:6.0.3]
+	at org.junit.platform.launcher.core.InterceptingLauncher.lambda$execute$2(InterceptingLauncher.java:57) ~[junit-platform-launcher-6.0.3.jar:6.0.3]
+	at org.junit.platform.launcher.core.ClasspathAlignmentCheckingLauncherInterceptor.intercept(ClasspathAlignmentCheckingLauncherInterceptor.java:25) ~[junit-platform-launcher-6.0.3.jar:6.0.3]
+	at org.junit.platform.launcher.core.InterceptingLauncher.execute(InterceptingLauncher.java:56) ~[junit-platform-launcher-6.0.3.jar:6.0.3]
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:58) ~[junit-platform-launcher-6.0.3.jar:6.0.3]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565) ~[na:na]
+	at org.apache.maven.surefire.api.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:125) ~[surefire-api-3.5.4.jar:3.5.4]
+	at org.apache.maven.surefire.junitplatform.LauncherAdapter.executeWithCancellationToken(LauncherAdapter.java:68) ~[surefire-junit-platform-3.5.4.jar:3.5.4]
+	at org.apache.maven.surefire.junitplatform.LauncherAdapter.execute(LauncherAdapter.java:54) ~[surefire-junit-platform-3.5.4.jar:3.5.4]
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:203) ~[surefire-junit-platform-3.5.4.jar:3.5.4]
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:168) ~[surefire-junit-platform-3.5.4.jar:3.5.4]
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:136) ~[surefire-junit-platform-3.5.4.jar:3.5.4]
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385) ~[surefire-booter-3.5.4.jar:3.5.4]
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162) ~[surefire-booter-3.5.4.jar:3.5.4]
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507) ~[surefire-booter-3.5.4.jar:3.5.4]
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495) ~[surefire-booter-3.5.4.jar:3.5.4]
+
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.311 s -- in com.chimera.mcp.HttpWeaviateMcpClientTest
+[INFO] Running com.chimera.mcp.WeaviateMcpClientTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.020 s -- in com.chimera.mcp.WeaviateMcpClientTest
+[INFO] Running com.chimera.mcp.WeaviateRealIntegrationTest
+2026-03-17T17:19:26.197+03:00  INFO 4232 --- [chimera] [           main] o.t.utility.ImageNameSubstitutor         : Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
+2026-03-17T17:19:27.184+03:00  INFO 4232 --- [chimera] [           main] o.t.d.DockerClientProviderStrategy       : Loaded org.testcontainers.dockerclient.NpipeSocketClientProviderStrategy from ~/.testcontainers.properties, will try it first
+2026-03-17T17:19:28.094+03:00  INFO 4232 --- [chimera] [           main] o.t.d.DockerClientProviderStrategy       : Found Docker environment with local Npipe socket (npipe:////./pipe/docker_engine)
+2026-03-17T17:19:28.097+03:00  INFO 4232 --- [chimera] [           main] org.testcontainers.DockerClientFactory   : Docker host IP address is localhost
+2026-03-17T17:19:28.156+03:00  INFO 4232 --- [chimera] [           main] org.testcontainers.DockerClientFactory   : Connected to docker: 
+  Server Version: 27.4.0
+  API Version: 1.47
+  Operating System: Docker Desktop
+  Total Memory: 5854 MB
+2026-03-17T17:19:28.309+03:00  INFO 4232 --- [chimera] [           main] tc.testcontainers/ryuk:0.5.1             : Creating container for image: testcontainers/ryuk:0.5.1
+2026-03-17T17:19:29.256+03:00  INFO 4232 --- [chimera] [           main] o.t.utility.RegistryAuthLocator          : Credential helper/store (docker-credential-desktop) does not have credentials for https://index.docker.io/v1/
+2026-03-17T17:19:29.584+03:00  INFO 4232 --- [chimera] [           main] tc.testcontainers/ryuk:0.5.1             : Container testcontainers/ryuk:0.5.1 is starting: 50c31507ce973fd1d04943c56ad5af2572cd4fbe8e7b68d74c8e66c0e6d82657
+2026-03-17T17:19:30.928+03:00  INFO 4232 --- [chimera] [           main] tc.testcontainers/ryuk:0.5.1             : Container testcontainers/ryuk:0.5.1 started in PT2.7537S
+2026-03-17T17:19:30.953+03:00  INFO 4232 --- [chimera] [           main] o.t.utility.RyukResourceReaper           : Ryuk started - will monitor and terminate Testcontainers containers on JVM exit
+2026-03-17T17:19:30.954+03:00  INFO 4232 --- [chimera] [           main] org.testcontainers.DockerClientFactory   : Checking the system...
+2026-03-17T17:19:30.955+03:00  INFO 4232 --- [chimera] [           main] org.testcontainers.DockerClientFactory   : ?? Docker server version should be at least 1.6.0
+2026-03-17T17:19:30.957+03:00  INFO 4232 --- [chimera] [           main] tc.semitechnologies/weaviate:1.25.0      : Creating container for image: semitechnologies/weaviate:1.25.0
+2026-03-17T17:19:31.099+03:00  INFO 4232 --- [chimera] [           main] tc.semitechnologies/weaviate:1.25.0      : Container semitechnologies/weaviate:1.25.0 is starting: acebc4c071b89690b1ef9107707b91f15d9e37cf3726722b57db655441413127
+2026-03-17T17:19:32.062+03:00  INFO 4232 --- [chimera] [           main] o.t.c.wait.strategy.HttpWaitStrategy     : /friendly_jepsen: Waiting for 120 seconds for URL: http://localhost:13565/v1/.well-known/ready (where port 13565 maps to container port 8080)
+2026-03-17T17:19:36.146+03:00  INFO 4232 --- [chimera] [           main] tc.semitechnologies/weaviate:1.25.0      : Container semitechnologies/weaviate:1.25.0 started in PT5.1896113S
+2026-03-17T17:19:36.161+03:00  INFO 4232 --- [chimera] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.chimera.mcp.WeaviateRealIntegrationTest]: WeaviateRealIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-03-17T17:19:36.224+03:00  INFO 4232 --- [chimera] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.chimera.ChimeraApplication for test class com.chimera.mcp.WeaviateRealIntegrationTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.0.3)
+
+2026-03-17T17:19:36.675+03:00  INFO 4232 --- [chimera] [           main] c.c.mcp.WeaviateRealIntegrationTest      : Starting WeaviateRealIntegrationTest using Java 25.0.2 with PID 4232 (started by kingsta in C:\Users\kingsta\Desktop\tenas\chimera_challenge\chimera)
+2026-03-17T17:19:36.676+03:00  INFO 4232 --- [chimera] [           main] c.c.mcp.WeaviateRealIntegrationTest      : No active profile set, falling back to 1 default profile: "default"
+2026-03-17T17:19:37.511+03:00  INFO 4232 --- [chimera] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-03-17T17:19:37.512+03:00  INFO 4232 --- [chimera] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-17T17:19:37.537+03:00  INFO 4232 --- [chimera] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 20 ms. Found 0 JPA repository interfaces.
+2026-03-17T17:19:37.565+03:00  INFO 4232 --- [chimera] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-03-17T17:19:37.565+03:00  INFO 4232 --- [chimera] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-03-17T17:19:37.584+03:00  INFO 4232 --- [chimera] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 14 ms. Found 0 Redis repository interfaces.
+2026-03-17T17:19:37.782+03:00  INFO 4232 --- [chimera] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
+2026-03-17T17:19:37.789+03:00  INFO 4232 --- [chimera] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-3 - Added connection conn20: url=jdbc:h2:mem:a850fec4-7baf-4b92-973f-0b74a5d97373 user=SA
+2026-03-17T17:19:37.789+03:00  INFO 4232 --- [chimera] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
+2026-03-17T17:19:37.794+03:00  INFO 4232 --- [chimera] [           main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-03-17T17:19:37.888+03:00  INFO 4232 --- [chimera] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-17T17:19:37.893+03:00  INFO 4232 --- [chimera] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:h2:mem:a850fec4-7baf-4b92-973f-0b74a5d97373]
+	Database driver: H2 JDBC Driver
+	Database dialect: H2Dialect
+	Database version: 2.4.240
+	Default catalog/schema: A850FEC4-7BAF-4B92-973F-0B74A5D97373/PUBLIC
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 100
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-03-17T17:19:37.942+03:00  INFO 4232 --- [chimera] [           main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-03-17T17:19:37.944+03:00  INFO 4232 --- [chimera] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-17T17:19:37.951+03:00  WARN 4232 --- [chimera] [           main] com.chimera.service.PersonaService       : Persona directory does not exist or is not a directory: agents
+2026-03-17T17:19:37.960+03:00  INFO 4232 --- [chimera] [           main] com.chimera.config.McpConfig             : Using HTTP Weaviate MCP client (url=http://localhost:13565)
+2026-03-17T17:19:38.010+03:00  WARN 4232 --- [chimera] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-03-17T17:19:38.458+03:00  INFO 4232 --- [chimera] [           main] c.c.mcp.WeaviateRealIntegrationTest      : Started WeaviateRealIntegrationTest in 2.21 seconds (process running for 33.775)
+2026-03-17T17:19:38.864+03:00  WARN 4232 --- [chimera] [           main] o.j.j.e.d.AbstractExtensionContext       : Type implements CloseableResource but not AutoCloseable: org.testcontainers.junit.jupiter.TestcontainersExtension$StoreAdapter
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 13.71 s -- in com.chimera.mcp.WeaviateRealIntegrationTest
+[INFO] Running com.chimera.planner.PlannerIntegrationTest
+2026-03-17T17:19:39.795+03:00  INFO 4232 --- [chimera] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.chimera.ChimeraApplication for test class com.chimera.planner.PlannerIntegrationTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.0.3)
+
+2026-03-17T17:19:39.998+03:00  INFO 4232 --- [chimera] [           main] c.c.planner.PlannerIntegrationTest       : Starting PlannerIntegrationTest using Java 25.0.2 with PID 4232 (started by kingsta in C:\Users\kingsta\Desktop\tenas\chimera_challenge\chimera)
+2026-03-17T17:19:39.999+03:00  INFO 4232 --- [chimera] [           main] c.c.planner.PlannerIntegrationTest       : No active profile set, falling back to 1 default profile: "default"
+2026-03-17T17:19:42.028+03:00  INFO 4232 --- [chimera] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-03-17T17:19:42.029+03:00  INFO 4232 --- [chimera] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-17T17:19:42.089+03:00  INFO 4232 --- [chimera] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 54 ms. Found 0 JPA repository interfaces.
+2026-03-17T17:19:42.120+03:00  INFO 4232 --- [chimera] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-03-17T17:19:42.120+03:00  INFO 4232 --- [chimera] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-03-17T17:19:42.216+03:00  INFO 4232 --- [chimera] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 78 ms. Found 0 Redis repository interfaces.
+2026-03-17T17:19:42.525+03:00  INFO 4232 --- [chimera] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Starting...
+2026-03-17T17:19:42.533+03:00  INFO 4232 --- [chimera] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-4 - Added connection conn30: url=jdbc:h2:mem:7f818973-3367-46bb-9fb6-f28c146ccaa5 user=SA
+2026-03-17T17:19:42.533+03:00  INFO 4232 --- [chimera] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Start completed.
+2026-03-17T17:19:42.537+03:00  INFO 4232 --- [chimera] [           main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-03-17T17:19:42.733+03:00  INFO 4232 --- [chimera] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-17T17:19:42.737+03:00  INFO 4232 --- [chimera] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:h2:mem:7f818973-3367-46bb-9fb6-f28c146ccaa5]
+	Database driver: H2 JDBC Driver
+	Database dialect: H2Dialect
+	Database version: 2.4.240
+	Default catalog/schema: 7F818973-3367-46BB-9FB6-F28C146CCAA5/PUBLIC
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 100
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-03-17T17:19:42.795+03:00  INFO 4232 --- [chimera] [           main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-03-17T17:19:42.800+03:00  INFO 4232 --- [chimera] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-17T17:19:42.888+03:00  WARN 4232 --- [chimera] [           main] com.chimera.service.PersonaService       : Persona directory does not exist or is not a directory: agents
+2026-03-17T17:19:42.894+03:00  INFO 4232 --- [chimera] [           main] com.chimera.config.McpConfig             : Using HTTP Weaviate MCP client (url=http://localhost:8081)
+2026-03-17T17:19:42.918+03:00  WARN 4232 --- [chimera] [           main] com.chimera.planner.ContextAssembler     : No persona found for agent test-agent-001
+2026-03-17T17:19:42.920+03:00  INFO 4232 --- [chimera] [           main] com.chimera.planner.PlannerService       : Loaded 3 goals and pushed tasks to Redis.
+2026-03-17T17:19:42.931+03:00  INFO 4232 --- [chimera] [     virtual-83] com.chimera.planner.PlannerService       : Planner verdict loop started
+2026-03-17T17:19:42.960+03:00  INFO 4232 --- [chimera] [     virtual-83] com.chimera.planner.PlannerService       : Replanned task task-x (attempt 1/2) based on judge verdict REJECT
+2026-03-17T17:19:42.975+03:00  WARN 4232 --- [chimera] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-03-17T17:19:43.605+03:00  INFO 4232 --- [chimera] [           main] c.c.planner.PlannerIntegrationTest       : Started PlannerIntegrationTest in 3.797 seconds (process running for 38.922)
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.008 s -- in com.chimera.planner.PlannerIntegrationTest
+[INFO] Running com.chimera.planner.PlannerServiceTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.106 s -- in com.chimera.planner.PlannerServiceTest
+[INFO] Running com.chimera.skillsInterfaceTest
+[WARNING] Tests run: 3, Failures: 0, Errors: 0, Skipped: 3, Time elapsed: 0.007 s -- in com.chimera.skillsInterfaceTest
+[INFO] Running com.chimera.trendFetcherTest
+[WARNING] Tests run: 2, Failures: 0, Errors: 0, Skipped: 2, Time elapsed: 0.002 s -- in com.chimera.trendFetcherTest
+[INFO] Running com.chimera.worker.McpMemoryIntegrationTest
+2026-03-17T17:19:43.936+03:00  INFO 4232 --- [chimera] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.chimera.ChimeraApplication for test class com.chimera.worker.McpMemoryIntegrationTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.0.3)
+
+2026-03-17T17:19:44.028+03:00  INFO 4232 --- [chimera] [           main] c.c.worker.McpMemoryIntegrationTest      : Starting McpMemoryIntegrationTest using Java 25.0.2 with PID 4232 (started by kingsta in C:\Users\kingsta\Desktop\tenas\chimera_challenge\chimera)
+2026-03-17T17:19:44.028+03:00  INFO 4232 --- [chimera] [           main] c.c.worker.McpMemoryIntegrationTest      : No active profile set, falling back to 1 default profile: "default"
+2026-03-17T17:19:44.934+03:00  INFO 4232 --- [chimera] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-03-17T17:19:44.937+03:00  INFO 4232 --- [chimera] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-17T17:19:44.985+03:00  INFO 4232 --- [chimera] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 26 ms. Found 0 JPA repository interfaces.
+2026-03-17T17:19:45.009+03:00  INFO 4232 --- [chimera] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-03-17T17:19:45.009+03:00  INFO 4232 --- [chimera] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-03-17T17:19:45.033+03:00  INFO 4232 --- [chimera] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 18 ms. Found 0 Redis repository interfaces.
+2026-03-17T17:19:45.265+03:00  INFO 4232 --- [chimera] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Starting...
+2026-03-17T17:19:45.270+03:00  INFO 4232 --- [chimera] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-5 - Added connection conn40: url=jdbc:h2:mem:b9a17512-b532-4d1d-9b3b-62ff3891f428 user=SA
+2026-03-17T17:19:45.271+03:00  INFO 4232 --- [chimera] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Start completed.
+2026-03-17T17:19:45.274+03:00  INFO 4232 --- [chimera] [           main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-03-17T17:19:45.368+03:00  INFO 4232 --- [chimera] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-17T17:19:45.380+03:00  INFO 4232 --- [chimera] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:h2:mem:b9a17512-b532-4d1d-9b3b-62ff3891f428]
+	Database driver: H2 JDBC Driver
+	Database dialect: H2Dialect
+	Database version: 2.4.240
+	Default catalog/schema: B9A17512-B532-4D1D-9B3B-62FF3891F428/PUBLIC
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 100
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-03-17T17:19:45.431+03:00  INFO 4232 --- [chimera] [           main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-03-17T17:19:45.433+03:00  INFO 4232 --- [chimera] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-17T17:19:45.438+03:00  WARN 4232 --- [chimera] [           main] com.chimera.service.PersonaService       : Persona directory does not exist or is not a directory: agents
+2026-03-17T17:19:45.462+03:00  INFO 4232 --- [chimera] [           main] com.chimera.config.McpConfig             : Using mock Weaviate MCP client
+2026-03-17T17:19:45.578+03:00  INFO 4232 --- [chimera] [     virtual-89] com.chimera.worker.WorkerService         : Worker loop started
+2026-03-17T17:19:45.654+03:00  INFO 4232 --- [chimera] [     virtual-91] com.chimera.worker.WorkerService         : Processing task 0267aa6a-59d7-467f-bd8b-0f1838acf1aa (type=store_memory)
+2026-03-17T17:19:45.655+03:00  INFO 4232 --- [chimera] [     virtual-91] com.chimera.worker.WorkerService         : Published result for task 0267aa6a-59d7-467f-bd8b-0f1838acf1aa to review queue
+2026-03-17T17:19:45.660+03:00  WARN 4232 --- [chimera] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-03-17T17:19:45.672+03:00  INFO 4232 --- [chimera] [     virtual-93] com.chimera.worker.WorkerService         : Processing task 5ca33163-3339-4a62-97ff-997106695abe (type=search_memory)
+2026-03-17T17:19:45.675+03:00  INFO 4232 --- [chimera] [     virtual-93] com.chimera.worker.WorkerService         : Published result for task 5ca33163-3339-4a62-97ff-997106695abe to review queue
+2026-03-17T17:19:46.147+03:00  INFO 4232 --- [chimera] [           main] c.c.worker.McpMemoryIntegrationTest      : Started McpMemoryIntegrationTest in 2.2 seconds (process running for 41.463)
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.388 s -- in com.chimera.worker.McpMemoryIntegrationTest
+[INFO] Running com.chimera.worker.WorkerIntegrationTest
+2026-03-17T17:19:46.260+03:00  INFO 4232 --- [chimera] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.chimera.ChimeraApplication for test class com.chimera.worker.WorkerIntegrationTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.0.3)
+
+2026-03-17T17:19:46.351+03:00  INFO 4232 --- [chimera] [           main] c.chimera.worker.WorkerIntegrationTest   : Starting WorkerIntegrationTest using Java 25.0.2 with PID 4232 (started by kingsta in C:\Users\kingsta\Desktop\tenas\chimera_challenge\chimera)
+2026-03-17T17:19:46.351+03:00  INFO 4232 --- [chimera] [           main] c.chimera.worker.WorkerIntegrationTest   : No active profile set, falling back to 1 default profile: "default"
+2026-03-17T17:19:47.189+03:00  INFO 4232 --- [chimera] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-03-17T17:19:47.190+03:00  INFO 4232 --- [chimera] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-17T17:19:47.207+03:00  INFO 4232 --- [chimera] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13 ms. Found 0 JPA repository interfaces.
+2026-03-17T17:19:47.223+03:00  INFO 4232 --- [chimera] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-03-17T17:19:47.223+03:00  INFO 4232 --- [chimera] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-03-17T17:19:47.244+03:00  INFO 4232 --- [chimera] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 16 ms. Found 0 Redis repository interfaces.
+2026-03-17T17:19:47.473+03:00  INFO 4232 --- [chimera] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Starting...
+2026-03-17T17:19:47.482+03:00  INFO 4232 --- [chimera] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-6 - Added connection conn50: url=jdbc:h2:mem:5f43f453-5985-4c6f-a774-d4fda3065126 user=SA
+2026-03-17T17:19:47.482+03:00  INFO 4232 --- [chimera] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Start completed.
+2026-03-17T17:19:47.485+03:00  INFO 4232 --- [chimera] [           main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-03-17T17:19:47.575+03:00  INFO 4232 --- [chimera] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-17T17:19:47.580+03:00  INFO 4232 --- [chimera] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:h2:mem:5f43f453-5985-4c6f-a774-d4fda3065126]
+	Database driver: H2 JDBC Driver
+	Database dialect: H2Dialect
+	Database version: 2.4.240
+	Default catalog/schema: 5F43F453-5985-4C6F-A774-D4FDA3065126/PUBLIC
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 100
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-03-17T17:19:47.619+03:00  INFO 4232 --- [chimera] [           main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-03-17T17:19:47.620+03:00  INFO 4232 --- [chimera] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-17T17:19:47.626+03:00  WARN 4232 --- [chimera] [           main] com.chimera.service.PersonaService       : Persona directory does not exist or is not a directory: agents
+2026-03-17T17:19:47.662+03:00  INFO 4232 --- [chimera] [           main] com.chimera.config.McpConfig             : Using HTTP Weaviate MCP client (url=http://localhost:8081)
+2026-03-17T17:19:47.680+03:00  INFO 4232 --- [chimera] [     virtual-99] com.chimera.worker.WorkerService         : Worker loop started
+2026-03-17T17:19:47.682+03:00  INFO 4232 --- [chimera] [    virtual-100] com.chimera.worker.WorkerService         : Processing task 9b1fa02f-6df8-4fa4-9b0d-2949c3aea840 (type=generate_content)
+2026-03-17T17:19:47.765+03:00  WARN 4232 --- [chimera] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-03-17T17:19:47.910+03:00  INFO 4232 --- [chimera] [    virtual-100] com.chimera.worker.WorkerService         : Published result for task 9b1fa02f-6df8-4fa4-9b0d-2949c3aea840 to review queue
+2026-03-17T17:19:48.150+03:00  INFO 4232 --- [chimera] [           main] c.chimera.worker.WorkerIntegrationTest   : Started WorkerIntegrationTest in 1.874 seconds (process running for 43.466)
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.925 s -- in com.chimera.worker.WorkerIntegrationTest
+[INFO] Running com.chimera.worker.WorkerServiceTest
+2026-03-17T17:19:48.321+03:00  INFO 4232 --- [chimera] [           main] com.chimera.worker.WorkerService         : Processing task 7536ae5a-eb1e-4025-b438-c4b6ba1de746 (type=store_memory)
+2026-03-17T17:19:48.324+03:00  INFO 4232 --- [chimera] [           main] com.chimera.worker.WorkerService         : Published result for task 7536ae5a-eb1e-4025-b438-c4b6ba1de746 to review queue
+2026-03-17T17:19:48.332+03:00  INFO 4232 --- [chimera] [           main] com.chimera.worker.WorkerService         : Processing task task-x (type=unknown_type)
+2026-03-17T17:19:48.333+03:00  WARN 4232 --- [chimera] [           main] com.chimera.worker.WorkerService         : Unsupported task type: unknown_type
+2026-03-17T17:19:48.337+03:00  INFO 4232 --- [chimera] [           main] com.chimera.worker.WorkerService         : Published result for task task-x to review queue
+2026-03-17T17:19:48.348+03:00  INFO 4232 --- [chimera] [           main] com.chimera.worker.WorkerService         : Processing task fa11d786-0f21-4498-909c-fab87f299d5c (type=search_memory)
+2026-03-17T17:19:48.348+03:00  INFO 4232 --- [chimera] [           main] com.chimera.worker.WorkerService         : Published result for task fa11d786-0f21-4498-909c-fab87f299d5c to review queue
+2026-03-17T17:19:48.354+03:00  INFO 4232 --- [chimera] [           main] com.chimera.worker.WorkerService         : Processing task 49fd701e-b5ba-4924-86db-7da210b45820 (type=generate_content)
+2026-03-17T17:19:48.723+03:00  INFO 4232 --- [chimera] [           main] com.chimera.worker.WorkerService         : Published result for task 49fd701e-b5ba-4924-86db-7da210b45820 to review queue
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.555 s -- in com.chimera.worker.WorkerServiceTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[WARNING] Tests run: 23, Failures: 0, Errors: 0, Skipped: 5
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  01:10 min
+[INFO] Finished at: 2026-03-17T17:19:49+03:00
+[INFO] ------------------------------------------------------------------------

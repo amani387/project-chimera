@@ -2,6 +2,9 @@ package com.chimera.planner;
 
 import com.chimera.model.JudgeVerdict;
 import com.chimera.model.Task;
+import com.chimera.model.MemoryEntry;
+import com.chimera.mcp.WeaviateMcpClient;
+import com.chimera.service.PersonaService;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.annotation.PostConstruct;
@@ -9,9 +12,12 @@ import jakarta.annotation.PreDestroy;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.TimeUnit;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -22,9 +28,9 @@ import org.springframework.stereotype.Service;
 @ConditionalOnProperty(name = "chimera.planner.enabled", havingValue = "true", matchIfMissing = true)
 public class PlannerService {
 
+  private static final String GOALS_RESOURCE = "goals.json";
   private static final String TASK_QUEUE = "task:queue:test-agent-001";
   private static final String PLANNER_QUEUE = "planner:queue:test-agent-001";
-  private static final String GOALS_RESOURCE = "goals.json";
   private static final int MAX_RETRY_ATTEMPTS = 2;
 
   private final RedisTemplate<String, Task> taskRedisTemplate;
@@ -37,6 +43,12 @@ public class PlannerService {
 
   private volatile boolean running = true;
 
+  private PersonaService personaService;
+  private WeaviateMcpClient weaviateMcpClient;
+  private String agentId = "test-agent-001";
+  private int contextMemoryLimit = 5;
+  private Context context;
+
   public PlannerService(
       RedisTemplate<String, Task> taskRedisTemplate,
       RedisTemplate<String, JudgeVerdict> verdictRedisTemplate,
@@ -47,10 +59,36 @@ public class PlannerService {
     this.objectMapper = new ObjectMapper();
   }
 
+  @Autowired(required = false)
+  public void setPersonaService(PersonaService personaService) {
+    this.personaService = personaService;
+  }
+
+  @Autowired(required = false)
+  public void setWeaviateMcpClient(WeaviateMcpClient weaviateMcpClient) {
+    this.weaviateMcpClient = weaviateMcpClient;
+  }
+
+  @Autowired(required = false)
+  public void setAgentId(@Value("${chimera.agent.id:test-agent-001}") String agentId) {
+    this.agentId = agentId;
+  }
+
+  @Autowired(required = false)
+  public void setContextMemoryLimit(@Value("${chimera.planner.context-memory-limit:5}") int contextMemoryLimit) {
+    this.contextMemoryLimit = contextMemoryLimit;
+  }
+
+  public Context getContext() {
+    return context;
+  }
+
   @PostConstruct
   void init() {
     try {
       var goals = loadGoals();
+      var assembler = new ContextAssembler();
+      this.context = assembler.assemble(agentId, goals, personaService, weaviateMcpClient, contextMemoryLimit);
       planGoals(goals);
       log.info("Loaded {} goals and pushed tasks to Redis.", goals.size());
     } catch (IOException e) {
