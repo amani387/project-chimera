@@ -1,0 +1,7 @@
+chimera:
+  weaviate:
+    url: http://localhost:8081
+    class-name: Memory
+    mock: false   # set to true for local development without a Weaviate instance
+    connect-timeout: 5000
+    read-timeout: 10000
