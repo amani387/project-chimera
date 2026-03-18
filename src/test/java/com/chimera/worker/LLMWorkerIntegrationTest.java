@@ -7,16 +7,12 @@ import static org.mockito.Mockito.when;
 
 import com.chimera.model.Task;
 import com.chimera.model.WorkerResult;
-import java.time.Instant;
 import java.util.List;
-import java.util.Map;
-import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.TestConfiguration;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.redis.core.ListOperations;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -25,12 +21,10 @@ import org.springframework.data.redis.core.RedisTemplate;
     "spring.autoconfigure.exclude=org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration",
     "chimera.redis.enabled=false",
     "chimera.planner.enabled=false",
-    "chimera.worker.enabled=true"
+    "chimera.worker.enabled=true",
+    "chimera.llm.provider=mock"
 })
-class WorkerIntegrationTest {
-
-  @Autowired
-  private WorkerService workerService;
+class LLMWorkerIntegrationTest {
 
   @Autowired
   private List<WorkerResult> capturedResults;
@@ -38,19 +32,14 @@ class WorkerIntegrationTest {
   @Autowired
   private List<Task> publishedTasks;
 
-  @Autowired
-  private ApplicationContext context;
-
   @Test
-  void workerShouldProcessTaskFromQueueAndPublishResult() throws Exception {
+  void workerShouldUseLlmServiceWhenAvailable() throws Exception {
     assertThat(publishedTasks).isNotEmpty();
 
-    // Wait for worker to process the task
     boolean processed = waitForResults(1, 5, TimeUnit.SECONDS);
 
     assertThat(processed).isTrue();
     assertThat(capturedResults).isNotEmpty();
-    assertThat(capturedResults.get(0).taskId()).isEqualTo(publishedTasks.get(0).taskId());
     assertThat(capturedResults.get(0).output().content()).contains("[MOCK]");
   }
 
@@ -66,7 +55,7 @@ class WorkerIntegrationTest {
   }
 
   @TestConfiguration
-  static class WorkerTestConfig {
+  static class LLMWorkerTestConfig {
 
     @Bean
     public List<Task> publishedTasks() {

@@ -4,6 +4,8 @@ import com.chimera.mcp.WeaviateMcpClient;
 import com.chimera.model.MemoryEntry;
 import com.chimera.model.Task;
 import com.chimera.model.WorkerResult;
+import com.chimera.planner.PlannerService;
+import com.chimera.service.LLMService;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.List;
@@ -41,8 +43,35 @@ public class WorkerService {
   @org.springframework.beans.factory.annotation.Autowired(required = false)
   private WeaviateMcpClient memoryClient;
 
+  // Optional: only provided when LLM integration is enabled.
+  @org.springframework.beans.factory.annotation.Autowired(required = false)
+  private LLMService llmService;
+
+  @org.springframework.beans.factory.annotation.Autowired(required = false)
+  private PromptBuilder promptBuilder;
+
+  @org.springframework.beans.factory.annotation.Autowired(required = false)
+  private PlannerService plannerService;
+
   private volatile boolean running = true;
   private Future<?> listenerFuture;
+
+  // Exposed for tests or manual wiring.
+  public void setMemoryClient(WeaviateMcpClient memoryClient) {
+    this.memoryClient = memoryClient;
+  }
+
+  public void setLlmService(LLMService llmService) {
+    this.llmService = llmService;
+  }
+
+  public void setPromptBuilder(PromptBuilder promptBuilder) {
+    this.promptBuilder = promptBuilder;
+  }
+
+  public void setPlannerService(PlannerService plannerService) {
+    this.plannerService = plannerService;
+  }
 
   public WorkerService(
       @Qualifier("taskRedisTemplate") RedisTemplate<String, Task> taskRedisTemplate,
@@ -51,11 +80,6 @@ public class WorkerService {
     this.taskRedisTemplate = taskRedisTemplate;
     this.resultRedisTemplate = resultRedisTemplate;
     this.executor = workerExecutor;
-  }
-
-  // Exposed for tests or manual wiring.
-  public void setMemoryClient(WeaviateMcpClient memoryClient) {
-    this.memoryClient = memoryClient;
   }
 
   @PostConstruct
@@ -125,7 +149,58 @@ public class WorkerService {
   }
 
   private WorkerResult processGenerateContent(Task task, Instant start) throws InterruptedException {
-    // Simulate work
+    if (llmService != null && promptBuilder != null) {
+      var goal = task.context() != null ? task.context().goalDescription() : "Generate content";
+      var platform = "";
+      var params = task.parameters();
+      if (params != null) {
+        var platformObj = params.get("platform");
+        if (platformObj instanceof String s) {
+          platform = s;
+        }
+      }
+
+      var systemPrompt = promptBuilder.buildSystemPrompt(
+          plannerService != null ? plannerService.getContext() : null);
+      var userPrompt = promptBuilder.buildUserPrompt(goal, platform);
+
+      var request = new com.chimera.model.GenerationRequest(
+          systemPrompt,
+          userPrompt,
+          params == null ? Map.of() : Map.copyOf(params)
+      );
+
+      try {
+        var result = llmService.generate(request).join();
+        var output = new WorkerResult.WorkerOutput(
+            "text",
+            result.text(),
+            List.of()
+        );
+
+        return new WorkerResult(
+            task.taskId(),
+            WORKER_ID,
+            output,
+            0.95,
+            "Generated text content",
+            List.of(),
+            Duration.between(start, Instant.now()).toMillis(),
+            Map.of(
+                "model", result.model(),
+                "promptTokens", result.promptTokens(),
+                "completionTokens", result.completionTokens(),
+                "latencyMs", result.latencyMs(),
+                "finishReason", result.finishReason()
+            )
+        );
+      } catch (Exception e) {
+        log.error("LLM generation failed", e);
+        return buildFailureResult(task, "LLM generation failed: " + e.getMessage());
+      }
+    }
+
+    // Fallback to simulated output if LLM is not configured.
     var sleepMs = 100 + ThreadLocalRandom.current().nextInt(400);
     try {
       Thread.sleep(sleepMs);

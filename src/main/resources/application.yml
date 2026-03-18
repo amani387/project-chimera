@@ -6,3 +6,12 @@ chimera:
     connect-timeout: 5000
     read-timeout: 10000
 
+  llm:
+    provider: groq              # or "mock" for testing
+    model: llama-3.3-70b-versatile
+    base-url: https://api.groq.com/openai
+    api-key: ${GROQ_API_KEY}    # read from environment
+    max-tokens: 500
+    temperature: 0.7
+    mock: false                  # set true to force mock mode
+
