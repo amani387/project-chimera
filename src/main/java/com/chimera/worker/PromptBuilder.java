@@ -52,4 +52,17 @@ public class PromptBuilder {
         }
         return goal;
     }
+
+    public String buildImagePrompt(Context context, String goal, String platform) {
+        if (context == null || context.persona() == null) {
+            return goal;
+        }
+
+        AgentPersona persona = context.persona();
+        String style = persona.voiceTraits() != null && !persona.voiceTraits().isEmpty() 
+            ? String.join(", ", persona.voiceTraits()) 
+            : "professional fashion";
+        return String.format("Create a visually stunning %s image for: %s. In the style of %s (%s aesthetic). High quality, photorealistic.", 
+            platform, goal, persona.name(), style);
+    }
 }

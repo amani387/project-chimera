@@ -2,7 +2,7 @@ chimera:
   weaviate:
     url: http://localhost:8081
     class-name: Memory
-    mock: false   # set to true for local development without a Weaviate instance
+    mock: true   # set to true for local development without a Weaviate instance
     connect-timeout: 5000
     read-timeout: 10000
 
@@ -14,4 +14,10 @@ chimera:
     max-tokens: 500
     temperature: 0.7
     mock: false                  # set true to force mock mode
+
+  image:
+    provider: pollinations
+    width: 1024
+    height: 1024
+    mock: false
 

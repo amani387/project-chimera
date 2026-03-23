@@ -1,0 +1,51 @@
+private WorkerResult processGenerateText(Task task, Instant start) throws InterruptedException {
+    if (llmService == null) {
+      String message = "LLM service not configured";
+      log.warn(message);
+      return buildFailureResult(task, message);
+    }
+
+    var params = task.parameters();
+    String systemPrompt = (String) params.get("systemPrompt");
+    String userPrompt = (String) params.get("userPrompt");
+    if (systemPrompt == null || userPrompt == null) {
+      String message = "Missing systemPrompt or userPrompt in parameters";
+      log.warn(message);
+      return buildFailureResult(task, message);
+    }
+
+    Map<String, Object> extraParams = Map.copyOf(params.entrySet().stream()
+        .filter(e -> !List.of("systemPrompt", "userPrompt").contains(e.getKey()))
+        .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue)));
+
+    var request = new GenerationRequest(systemPrompt, userPrompt, extraParams);
+
+    var duration = Duration.between(start, Instant.now()).toMillis();
+    try {
+      var result = llmService.generate(request).join();
+      var output = new WorkerResult.WorkerOutput(
+          "text",
+          result.text(),
+          List.of()
+      );
+      return new WorkerResult(
+          task.taskId(),
+          WORKER_ID,
+          output,
+          1.0,
+          "Generated text via LLM",
+          List.of(),
+          duration,
+          Map.of(
+              "model", result.model(),
+              "promptTokens", result.promptTokens(),
+              "completionTokens", result.completionTokens(),
+              "latencyMs", result.latencyMs(),
+              "finishReason", result.finishReason()
+          )
+      );
+    } catch (Exception e) {
+      log.error("LLM generation failed for task {}", task.taskId(), e);
+      return buildFailureResult(task, "LLM generation failed: " + e.getMessage());
+    }
+  }

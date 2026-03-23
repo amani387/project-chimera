@@ -3,11 +3,16 @@ package com.chimera.worker;
 import com.chimera.mcp.WeaviateMcpClient;
 import com.chimera.model.MemoryEntry;
 import com.chimera.model.Task;
+import com.chimera.model.GenerationRequest;
+import com.chimera.model.ImageRequest;
+import com.chimera.model.ImageResult;
 import com.chimera.model.WorkerResult;
 import com.chimera.planner.PlannerService;
+import com.chimera.service.ImageGenerationService;
 import com.chimera.service.LLMService;
 import java.time.Duration;
 import java.time.Instant;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
@@ -47,11 +52,14 @@ public class WorkerService {
   @org.springframework.beans.factory.annotation.Autowired(required = false)
   private LLMService llmService;
 
-  @org.springframework.beans.factory.annotation.Autowired(required = false)
+@org.springframework.beans.factory.annotation.Autowired(required = false)
   private PromptBuilder promptBuilder;
 
   @org.springframework.beans.factory.annotation.Autowired(required = false)
   private PlannerService plannerService;
+
+  @org.springframework.beans.factory.annotation.Autowired(required = false)
+  private ImageGenerationService imageService;
 
   private volatile boolean running = true;
   private Future<?> listenerFuture;
@@ -123,16 +131,58 @@ public class WorkerService {
     }
   }
 
+  private WorkerResult processGenerateImage(Task task, Instant start) {
+    if (imageService == null) {
+      String message = "Image service not configured";
+      log.warn(message);
+      return buildFailureResult(task, message);
+    }
+
+    var params = task.parameters();
+    var prompt = (String) params.getOrDefault("prompt", task.context() != null ? task.context().goalDescription() : "Generate image");
+    var style = (String) params.getOrDefault("style", "");
+    var width = (Integer) params.getOrDefault("width", 1024);
+    var height = (Integer) params.getOrDefault("height", 1024);
+    var negativePrompt = (String) params.getOrDefault("negativePrompt", "");
+
+    var imageRequest = new ImageRequest(prompt, style, negativePrompt, width, height);
+
+    try {
+      var imageResult = imageService.generateImage(imageRequest).join();
+      var output = new WorkerResult.WorkerOutput(
+          "image",
+          imageResult.imageUrl(),
+          List.of()
+      );
+
+      return new WorkerResult(
+          task.taskId(),
+          WORKER_ID,
+          output,
+          1.0,
+          "Generated image for prompt: " + prompt,
+          List.of(),
+          Duration.between(start, Instant.now()).toMillis(),
+          imageResult.metadata()
+      );
+    } catch (Exception e) {
+      log.error("Image generation failed for task {}", task.taskId(), e);
+      return buildFailureResult(task, "Image generation failed: " + e.getMessage());
+    }
+  }
+
   void processTask(Task task) {
     var start = Instant.now();
     log.info("Processing task {} (type={})", task.taskId(), task.taskType());
 
     WorkerResult result;
     try {
-      result = switch (task.taskType()) {
+    result = switch (task.taskType()) {
         case "generate_content" -> processGenerateContent(task, start);
+case "generate_image" -> processGenerateImage(task, start);
         case "store_memory" -> processStoreMemory(task, start);
         case "search_memory" -> processSearchMemory(task, start);
+        case "generate_text" -> processGenerateText(task, start);
         default -> {
           String message = "Unsupported task type: " + task.taskType();
           log.warn(message);
@@ -153,21 +203,20 @@ public class WorkerService {
       var goal = task.context() != null ? task.context().goalDescription() : "Generate content";
       var platform = "";
       var params = task.parameters();
-      if (params != null) {
-        var platformObj = params.get("platform");
-        if (platformObj instanceof String s) {
-          platform = s;
-        }
+      var platformObj = params.get("platform");
+      if (platformObj instanceof String s) {
+        platform = s;
       }
 
       var systemPrompt = promptBuilder.buildSystemPrompt(
           plannerService != null ? plannerService.getContext() : null);
       var userPrompt = promptBuilder.buildUserPrompt(goal, platform);
 
-      var request = new com.chimera.model.GenerationRequest(
+      Map<String, Object> requestParams = params == null ? Map.of() : new HashMap<>(params);
+      var request = new GenerationRequest(
           systemPrompt,
           userPrompt,
-          params == null ? Map.of() : Map.copyOf(params)
+          requestParams
       );
 
       try {
@@ -227,6 +276,68 @@ public class WorkerService {
     );
   }
 
+  private WorkerResult processGenerateText(Task task, Instant start) {
+    if (llmService == null) {
+      String message = "LLM service not configured";
+      log.warn(message);
+      return buildFailureResult(task, message);
+    }
+
+    var params = task.parameters();
+    String systemPrompt = (String) params.get("systemPrompt");
+    String userPrompt = (String) params.get("userPrompt");
+    String goal = (String) params.get("goalDescription");
+    String platform = (String) params.getOrDefault("platform", "twitter");
+
+    if (systemPrompt == null || userPrompt == null) {
+      return buildFailureResult(task, "Missing systemPrompt or userPrompt in parameters");
+    }
+
+    try {
+      Map<String, Object> requestParams = new HashMap<>(params);
+      var request = new GenerationRequest(
+          systemPrompt,
+          userPrompt,
+          requestParams
+      );
+      var result = llmService.generate(request).join();
+      var output = new WorkerResult.WorkerOutput(
+          "text",
+          result.text(),
+          List.of()
+      );
+
+      return new WorkerResult(
+          task.taskId(),
+          WORKER_ID,
+          output,
+          1.0,
+          "Generated text for goal: " + goal,
+          List.of(),
+          Duration.between(start, Instant.now()).toMillis(),
+          Map.of(
+              "model", result.model(),
+              "promptTokens", result.promptTokens(),
+              "completionTokens", result.completionTokens(),
+              "latencyMs", result.latencyMs(),
+              "finishReason", result.finishReason()
+          )
+      );
+    } catch (Exception e) {
+      log.error("LLM text generation failed for task {}", task.taskId(), e);
+      return new WorkerResult(
+          task.taskId(),
+          WORKER_ID,
+          new WorkerResult.WorkerOutput("error", "", List.of()),
+          0.0,
+          "Text generation failed: " + e.getMessage(),
+          List.of(),
+          Duration.between(start, Instant.now()).toMillis(),
+          Map.of("error", e.getMessage())
+      );
+    }
+  }
+
   private WorkerResult processStoreMemory(Task task, Instant start) {
     if (memoryClient == null) {
       String message = "Memory client not configured";
@@ -236,7 +347,6 @@ public class WorkerService {
 
     var params = task.parameters();
     var content = (String) params.getOrDefault("content", "");
-    @SuppressWarnings("unchecked")
     var metadata = (Map<String, Object>) params.getOrDefault("metadata", Map.of());
 
     try {

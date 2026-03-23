@@ -1,0 +1,39 @@
+private WorkerResult processGenerateImage(Task task, Instant start) {
+  if (imageService == null) {
+    String message = "Image service not configured";
+    log.warn(message);
+    return buildFailureResult(task, message);
+  }
+
+  var params = task.parameters();
+  var prompt = (String) params.getOrDefault("prompt", task.context() != null ? task.context().goalDescription() : "Generate image");
+  var style = (String) params.getOrDefault("style", "");
+  var width = (Integer) params.getOrDefault("width", 1024);
+  var height = (Integer) params.getOrDefault("height", 1024);
+  var negativePrompt = (String) params.getOrDefault("negativePrompt", "");
+
+  var imageRequest = new ImageRequest(prompt, style, negativePrompt, width, height);
+
+  try {
+    var imageResult = imageService.generateImage(imageRequest).join();
+    var output = new WorkerResult.WorkerOutput(
+        "image",
+        imageResult.imageUrl(),
+        List.of()
+    );
+
+    return new WorkerResult(
+        task.taskId(),
+        WORKER_ID,
+        output,
+        1.0,
+        "Generated image for prompt: " + prompt,
+        List.of(),
+        Duration.between(start, Instant.now()).toMillis(),
+        imageResult.metadata()
+    );
+  } catch (Exception e) {
+    log.error("Image generation failed for task {}", task.taskId(), e);
+    return buildFailureResult(task, "Image generation failed: " + e.getMessage());
+  }
+}

@@ -3,6 +3,7 @@ package com.chimera.worker;
 import com.chimera.mcp.WeaviateMcpClient;
 import com.chimera.model.Task;
 import com.chimera.model.WorkerResult;
+import com.chimera.worker.WorkerService;
 import java.util.concurrent.ExecutorService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Qualifier;

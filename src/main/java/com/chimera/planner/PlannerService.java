@@ -5,6 +5,7 @@ import com.chimera.model.Task;
 import com.chimera.model.MemoryEntry;
 import com.chimera.mcp.WeaviateMcpClient;
 import com.chimera.service.PersonaService;
+import com.chimera.worker.PromptBuilder;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.annotation.PostConstruct;
@@ -45,6 +46,7 @@ public class PlannerService {
 
   private PersonaService personaService;
   private WeaviateMcpClient weaviateMcpClient;
+  private PromptBuilder promptBuilder;
   private String agentId = "test-agent-001";
   private int contextMemoryLimit = 5;
   private Context context;
@@ -64,9 +66,14 @@ public class PlannerService {
     this.personaService = personaService;
   }
 
-  @Autowired(required = false)
+@Autowired(required = false)
   public void setWeaviateMcpClient(WeaviateMcpClient weaviateMcpClient) {
     this.weaviateMcpClient = weaviateMcpClient;
+  }
+
+  @Autowired(required = false)
+  public void setPromptBuilder(PromptBuilder promptBuilder) {
+    this.promptBuilder = promptBuilder;
   }
 
   @Autowired(required = false)
@@ -169,9 +176,49 @@ public class PlannerService {
 
   void planGoals(List<String> goals) {
     for (String goal : goals) {
-      var task = Task.pending(goal);
+      if (promptBuilder == null || context == null) {
+        log.warn("PromptBuilder or Context not available; using legacy task");
+        var task = Task.pending(goal);
+        taskRedisTemplate.opsForList().leftPush(TASK_QUEUE, task);
+        continue;
+      }
+      boolean isImageGoal = goal.toLowerCase().contains("fashion") || goal.toLowerCase().contains("summer");
+      String taskType = isImageGoal ? "generate_image" : "generate_text";
+      String platform = isImageGoal ? "instagram" : "twitter";
+      Map<String, Object> parameters;
+      if (isImageGoal) {
+        String imagePrompt = promptBuilder.buildImagePrompt(context, goal, platform);
+        parameters = Map.<String, Object>of(
+            "prompt", imagePrompt,
+            "goalDescription", goal,
+            "platform", platform,
+            "width", 1024,
+            "height", 1024
+        );
+        log.debug("Enqueued {} task for image goal '{}'.", taskType, goal);
+      } else {
+        String systemPrompt = promptBuilder.buildSystemPrompt(context);
+        String userPrompt = promptBuilder.buildUserPrompt(goal, platform);
+        parameters = Map.<String, Object>of(
+            "systemPrompt", systemPrompt,
+            "userPrompt", userPrompt,
+            "goalDescription", goal,
+            "platform", platform
+        );
+        log.debug("Enqueued {} task for text goal '{}'.", taskType, goal);
+      }
+      var task = new Task(
+          java.util.UUID.randomUUID().toString(),
+          taskType,
+          "medium",
+          new Task.Context(goal, List.of(), List.of(), List.of()),
+          null,
+          null,
+          java.time.Instant.now(),
+          "pending",
+          parameters
+      );
       taskRedisTemplate.opsForList().leftPush(TASK_QUEUE, task);
-      log.debug("Enqueued task {} for goal '{}'.", task.taskId(), goal);
     }
   }
 }
